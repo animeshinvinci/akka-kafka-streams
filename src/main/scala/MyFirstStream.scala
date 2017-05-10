@@ -88,8 +88,7 @@ object MyFirstStream {
     // A stream of a file delimited by end of line sent over WebSocket
     val source9 = source7.map(TextMessage.Strict.apply)
     val flow9 = Flow.fromSinkAndSource(Sink.ignore, source9)
-    val stream9 = Http()
-    //    .bindAndHandle(handleWebSocketMessages(flow9), "localhost", 8888)
+    val stream9 = Http().bindAndHandle(handleWebSocketMessages(flow9), "localhost", 8888)
 
 
 
